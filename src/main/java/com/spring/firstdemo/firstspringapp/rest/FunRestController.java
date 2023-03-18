@@ -19,4 +19,10 @@ public class FunRestController {
     public String sayInfo() {
         return "This is a Spring Boot app";
     }
+
+    // expose "contact" endpoint and return some info
+    @GetMapping("/contact")
+    public String sayContact() {
+        return "Contact me at: " + name + "@gmail.com";
+    }
 }
