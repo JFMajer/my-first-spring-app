@@ -14,7 +14,7 @@ public class DemoController {
     private Coach secondCoach;
     // dependency injection with qualifier using setter injection
     @Autowired
-    public void setMyCoach(BasketballCoach myCoach) {
+    public void setMyCoach(@Qualifier("basketballCoach") Coach myCoach) {
         this.myCoach = myCoach;
     }
 
@@ -23,7 +23,6 @@ public class DemoController {
     public DemoController(@Qualifier("cricketCoach") Coach secondCoach) {
         this.secondCoach = secondCoach;
     }
-
 
     @GetMapping("/workout")
     public String getDailyWorkout() {
