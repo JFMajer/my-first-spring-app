@@ -1,6 +1,5 @@
 package com.spring.firstdemo.firstspringapp.rest;
 
-import com.spring.firstdemo.firstspringapp.common.BasketballCoach;
 import com.spring.firstdemo.firstspringapp.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,6 +11,7 @@ public class DemoController {
 
     private Coach myCoach;
     private Coach secondCoach;
+
     // dependency injection with qualifier using setter injection
     @Autowired
     public void setMyCoach(@Qualifier("basketballCoach") Coach myCoach) {
