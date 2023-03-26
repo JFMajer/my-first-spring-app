@@ -12,6 +12,7 @@ public class DemoController {
     private Coach myCoach;
     private Coach secondCoach;
     private Coach anotherCoach;
+    private Coach swimmingCoach;
 
     // dependency injection with qualifier using setter injection
     @Autowired
@@ -24,11 +25,13 @@ public class DemoController {
     @Autowired
     public DemoController(
             @Qualifier("cricketCoach") Coach secondCoach,
-            @Qualifier("cricketCoach") Coach anotherCoach
+            @Qualifier("cricketCoach") Coach anotherCoach,
+            @Qualifier("swimCoach") Coach swimmingCoach
     ) {
         System.out.println("In constructor: of cricketCoach: " + getClass().getSimpleName());
         this.secondCoach = secondCoach;
         this.anotherCoach = anotherCoach;
+        this.swimmingCoach = swimmingCoach;
     }
 
     @GetMapping("/workout")
@@ -39,6 +42,11 @@ public class DemoController {
     @GetMapping("/workout-cricket")
     public String getDailyWorkout2() {
         return secondCoach.getDailyWorkout();
+    }
+
+    @GetMapping("/workout-swimming")
+    public String getDailyWorkout3() {
+        return swimmingCoach.getDailyWorkout();
     }
 
     @GetMapping("/check")
